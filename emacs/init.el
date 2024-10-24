@@ -40,7 +40,8 @@
 (setq org-agenda-files '("~/org/personal.org" "~/org/bisc.org"))
 (setq org-startup-indented t)
 
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+(with-eval-after-load 'org
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0)))
 
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/personal.org" "Tasks")

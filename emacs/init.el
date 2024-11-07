@@ -1,5 +1,5 @@
 ;; Disable the menu bar
-;; (menu-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; Disable the tool bar
 (tool-bar-mode -1)
@@ -105,15 +105,8 @@
 (setq use-package-always-ensure t)
 
 ;; Theme
-(use-package doom-themes
-  :ensure t
-  :config
-  ;; Global settings (defaults)
-  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
-        doom-themes-enable-italic t) ; if nil, italics is universally disabled
-  (load-theme 'doom-one t)
-  ;; Corrects (and improves) org-mode's native fontification.
-  (doom-themes-org-config))
+(use-package monokai-theme)
+(load-theme 'monokai t)
 
 ;; which-key
 (use-package which-key
@@ -121,3 +114,49 @@
   (setq which-key-idle-delay 0.1)
   :config
   (which-key-mode t))
+
+;; dired-sidebar
+(use-package dired-sidebar
+  :ensure t
+  :commands (dired-sidebar-toggle-sidebar)
+  :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
+  :init
+  (setq dired-sidebar-subtree-line-prefix "   ")
+  (setq dired-sidebar-theme 'vscode) ; possible themes: 'nerd, 'vscode, 'icons
+  (setq dired-sidebar-use-term-integration t)
+  (setq dired-sidebar-use-custom-font t))
+
+
+(setq byte-compile-warnings '(not docstrings))
+(use-package vscode-icon
+  :ensure t
+  :commands (vscode-icon-for-file))
+
+;; Magit
+(use-package magit
+  :config
+  (setq magit-define-global-key-bindings 'recommended))
+
+;; ace-window
+(use-package ace-window)
+(global-set-key (kbd "M-o") 'ace-window)
+
+
+;; ace-jump-mode
+(use-package ace-jump-mode)
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; jump back
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)

@@ -172,4 +172,9 @@
 ;; pyvenv
 (use-package pyvenv)
 (setenv "WORKON_HOME" "~/.cache/pypoetry/virtualenvs")
-(pyvenv-mode)
+(pyvenv-mode t)
+ 
+;; corfu
+(use-package corfu)
+(global-corfu-mode t)
+

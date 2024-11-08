@@ -160,3 +160,16 @@
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
 (define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+;; eglot
+(defun ych-eglot-format-on-save ()
+    "Format with eglot before save"
+    (add-hook 'before-save-hook 'eglot-format))
+
+(add-hook 'python-mode-hook 'eglot-ensure)
+(add-hook 'python-mode-hook 'ych-eglot-format-on-save)
+
+;; pyvenv
+(use-package pyvenv)
+(setenv "WORKON_HOME" "~/.cache/pypoetry/virtualenvs")
+(pyvenv-mode)

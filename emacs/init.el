@@ -1,4 +1,4 @@
-;; Disable the menu bar
+d;; Disable the menu bar
 (menu-bar-mode -1)
 
 ;; Disable the tool bar
@@ -115,22 +115,6 @@
   :config
   (which-key-mode t))
 
-;; dired-sidebar
-(use-package dired-sidebar
-  :ensure t
-  :commands (dired-sidebar-toggle-sidebar)
-  :bind (("C-x C-n" . dired-sidebar-toggle-sidebar))
-  :init
-  (setq dired-sidebar-subtree-line-prefix "   ")
-  (setq dired-sidebar-theme 'vscode) ; possible themes: 'nerd, 'vscode, 'icons
-  (setq dired-sidebar-use-term-integration t)
-  (setq dired-sidebar-use-custom-font t))
-
-
-(setq byte-compile-warnings '(not docstrings))
-(use-package vscode-icon
-  :ensure t
-  :commands (vscode-icon-for-file))
 
 ;; Magit
 (use-package magit

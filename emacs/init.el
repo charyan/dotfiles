@@ -1,4 +1,4 @@
-d;; Disable the menu bar
+;; Disable the menu bar
 (menu-bar-mode -1)
 
 ;; Disable the tool bar
@@ -161,4 +161,4 @@ d;; Disable the menu bar
 ;; corfu
 (use-package corfu)
 (global-corfu-mode t)
-
+(corfu-popupinfo-mode t)

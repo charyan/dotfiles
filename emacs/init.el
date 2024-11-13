@@ -13,6 +13,9 @@
 ;; Auto-save to disk
 (auto-save-visited-mode t) 
 
+;; Mouse
+(mouse-avoidance-mode 'banish)
+
 ;; Store customizations in a separate file
 (setq custom-file "~/.emacs.d/custom.el")
 

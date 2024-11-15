@@ -11,7 +11,7 @@
 (setq ring-bell-function 'ignore)
 
 ;; Auto-save to disk
-(auto-save-visited-mode t) 
+(auto-save-visited-mode t)
 
 ;; Mouse
 (mouse-avoidance-mode 'banish)
@@ -31,16 +31,35 @@
 	    (set-frame-size frame 80 24)
 	    (scroll-bar-mode -1)))
 
-
 ;; disable window decorations
 (set-frame-parameter nil 'undecorated t)
 
 ;; Disable backups
 (setq make-backup-files nil)
 
+;; Autosaves
+(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/auto-saves/" t)))
+
 ;; Zoom with mouse scroll
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
+
+;; highlight current line
+(global-hl-line-mode t)
+
+;; Uses ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; dired
+(defun ych-open-project-root-in-dired ()
+  "Open current project's root in dired"
+  (interactive)
+  (dired (project-root (project-current t))))
+(global-set-key (kbd "C-x C-n") 'ych-open-project-root-in-dired)
+
+;; Tabs
+(setq-default indent-tabs-mode nil) ; use spaces
+(setq-default tab-width 4)
 
 ;; Org
 (global-set-key (kbd "C-c l") #'org-store-link)
@@ -160,7 +179,7 @@
 (use-package pyvenv)
 (setenv "WORKON_HOME" "~/.cache/pypoetry/virtualenvs")
 (pyvenv-mode t)
- 
+
 ;; corfu
 (use-package corfu)
 (global-corfu-mode t)

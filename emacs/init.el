@@ -44,9 +44,6 @@
 (global-set-key [C-mouse-4] 'text-scale-increase)
 (global-set-key [C-mouse-5] 'text-scale-decrease)
 
-;; highlight current line
-(global-hl-line-mode t)
-
 ;; Uses ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 

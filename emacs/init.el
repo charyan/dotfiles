@@ -142,7 +142,9 @@
 
 ;; ace-window
 (use-package ace-window)
-(global-set-key (kbd "M-o") 'ace-window)
+(global-set-key (kbd "M-O") 'ace-window)
+(global-set-key (kbd "M-o") 'other-window)
+
 
 
 ;; ace-jump-mode

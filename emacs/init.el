@@ -173,6 +173,7 @@
 
 (add-hook 'python-mode-hook 'eglot-ensure)
 (add-hook 'python-mode-hook 'ych-eglot-format-on-save)
+(define-key global-map (kbd "C-c <f2>") 'eglot-rename)
 
 ;; pyvenv
 (use-package pyvenv)
@@ -183,3 +184,7 @@
 (use-package corfu)
 (global-corfu-mode t)
 (corfu-popupinfo-mode t)
+
+;; Key bindings
+(define-key global-map (kbd "C-c h") 'eldoc)
+

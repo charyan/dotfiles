@@ -154,7 +154,7 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "M-c") 'ace-jump-mode)
 
 ;; jump back
 (autoload
@@ -164,7 +164,7 @@
   t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(define-key global-map (kbd "M-C") 'ace-jump-mode-pop-mark)
 
 ;; eglot
 (defun ych-eglot-format-on-save ()
@@ -187,4 +187,3 @@
 
 ;; Key bindings
 (define-key global-map (kbd "C-c h") 'eldoc)
-

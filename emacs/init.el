@@ -54,6 +54,9 @@
   (dired (project-root (project-current t))))
 (global-set-key (kbd "C-x C-n") 'ych-open-project-root-in-dired)
 
+(use-package dired-subtree)
+(define-key dired-mode-map (kbd "<tab>") 'dired-subtree-toggle)
+
 ;; Tabs
 (setq-default indent-tabs-mode nil) ; use spaces
 (setq-default tab-width 4)

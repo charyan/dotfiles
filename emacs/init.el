@@ -190,3 +190,9 @@
 
 ;; Key bindings
 (define-key global-map (kbd "C-c h") 'eldoc)
+
+;; Markdown mode
+(use-package markdown-mode
+  :ensure t
+  :mode ("README\\.md\\'" . gfm-mode)
+  :init (setq markdown-command "multimarkdown"))
